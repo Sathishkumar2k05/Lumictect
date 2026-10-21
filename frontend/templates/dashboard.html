@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+<body>
+    <div class="title-container">
+        <h1>Lumic Tech Employee Attendance System</h1>
+        <form action="{% url 'logout' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+    <div class="status-container">
+        <div class="status">
+            <p>
+                Status : 
+                {% if not attendance or not attendance.check_in %}
+                    Not Started
+                {% elif attendance.check_out %}
+                    Work Completed
+                {% else %}
+                    Working
+                {% endif %}
+            </p>
+        </div>
+        <div class="check-in">
+            {% if attendance %}
+                <p>Check In : {{ attendance.check_in|date:"h:i A" }}</p>
+            {% else %}
+                <p>Check In : --</p>
+            {% endif %}
+        </div>
+        <div class="check-out">
+            {% if attendance %}
+                <p>Check Out : {{ attendance.check_out|date:"h:i A" }}</p>
+            {% else %}
+                <p>Check Out : --</p>
+            {% endif %}
+        </div>
+        <div class="working-hours">
+            <p>
+                Total Working Hours :
+                {% if attendance and attendance.total_working_hours %}
+                    {{ attendance.total_working_hours }}
+                {% else %}
+                    --
+                {% endif %}
+            </p>
+        </div>
+    </div>
+    <center>
+    <div class="btn-container">
+        <div class="check-in-btn">
+            <form action="{% url 'check_in' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit">Check In</button>
+            </form>
+        </div>
+
+        <div class="check-out-btn">
+            <form action="{% url 'check_out' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit">Check Out</button>
+            </form>
+        </div>
+    </div>
+    </center>
+</body>
+</html>

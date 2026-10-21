@@ -1,0 +1,134 @@
+body{
+    font-family: sans-serif;
+    margin: 0;
+}
+
+.title-container{
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgb(12, 12, 108);
+    color: white;
+    margin: 0;
+    padding: 15px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 200px;
+}
+
+.title-container h1{
+    display: inline;
+    margin: 0;
+}
+
+.title-container button{
+    margin: 0px 40px 0px 0px;
+    padding: 7px 12px 7px 12px;
+    border: blue solid 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+}
+
+.status-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.status-container div{
+    border-radius: 10px;
+    backdrop-filter: blur(1px) saturate(140%);
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.06);
+    display: inline-block;
+    width: 40%;
+    padding: 15px 0px 15px 0;
+    text-align: center;
+    font-size: large;
+}
+
+.status-container .check-in-out p{
+    display: inline;
+}
+
+.btn-container{
+    border-radius: 10px;
+    backdrop-filter: blur(1px) saturate(140%);
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0 0 0;
+    height: 200px;
+    width: 83%;
+    gap: 70px;
+}
+
+.btn-container .check-in-btn button{
+    border: 1px solid rgb(1, 88, 1);
+    background-color: rgb(1, 88, 1);
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.btn-container .check-out-btn button{
+    border: 1px solid red;
+    background-color: red;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+@media(max-width:400px){
+    .title-container h1{
+        font-size: small;
+    }
+
+    .title-container{
+        gap: 20px;
+    }
+
+    .status-container{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .status-container div{
+        width: 85%;
+        margin-left: 25px;
+        font-size: small;
+    }
+
+    .title-container button{
+        margin-right: 5px;
+    }
+
+    .btn-container{
+        gap: 20px;
+        height: 150px;
+        width: 88%;
+        margin-top: 20px;
+    }
+
+    .btn-container .check-in-btn button{
+        width: 80px;
+        height: 30px;
+    }
+
+    .btn-container .check-out-btn button{
+        width: 80px;
+        height: 30px;
+    }
+}

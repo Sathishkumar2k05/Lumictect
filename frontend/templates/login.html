@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <form action="" method="POST" class="semi-container">
+            <h2>Login</h2>
+            {% csrf_token %}
+            <label>Employee ID</label>
+            <br>
+            <i class="fa-solid fa-user"></i>
+            {{ form.username }}
+            <br>
+            <label>Password</label>
+            <br>
+            <i class="fa-solid fa-lock"></i>
+            {{ form.password }}
+            {% if form.errors %}
+                <p class="message-p">{{ error }}</p>
+            {% endif %}
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+    </div>
+</body>
+</html>
